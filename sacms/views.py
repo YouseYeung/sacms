@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Article, ResearchGroup
 from django.contrib.auth.decorators import login_required
+from .models import Article, ResearchGroup
+from django.http import HttpResponse
 import json
 
 def index(request):
