@@ -21,19 +21,21 @@
 		<link href="{% static 'sacms/index.css' %}" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'sacms/data_ana_form.css' %}">
+    <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
   </head>
 
   <body>
     <!-- Main jumbotron for a primary marketing message or call to action -->
+           <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
 
-      	
-      	<div class="col-md-2 logo">
+
+        <div class="col-md-2 logo">
           <img src="{% static 'sacms/logo.jpg' %}" height="130">
         </div>
         <div class="col-md-10">
-        	<p class="chn-title"><b>国家重点研发计划——重要热带病传播相关的入侵媒介及其病原体的生物学特性研究</b></p>
+          <p class="chn-title"><b>国家重点研发计划——重要热带病传播相关的入侵媒介及其病原体的生物学特性研究</b></p>
           <div class="row">
             <div class="col-md-9 eng-title">
               <p><b>National Research and Development Plan: Research on Biological Characteristics of the Tropical Disease Related Invasion vectors and Pathogens</b><p>
@@ -54,13 +56,13 @@
           </div>
 
         </div>
-        
 
 
 
-		      <!-- <div class="col-md-3 search-box">
-			      <div class="row">
-			       	<div class="col-md-offset-1 col-md-11">
+
+          <!-- <div class="col-md-3 search-box">
+            <div class="row">
+              <div class="col-md-offset-1 col-md-11">
 
                 <div id="custom-search-input">
                   <div class="input-group col-md-12">
@@ -73,28 +75,30 @@
                   </div>
                 </div>
 
-			      	</div>
-			      </div>
-		      </div> -->
+              </div>
+            </div>
+          </div> -->
       </div>
 
       <div class="container">
-	      <div class="blog-masthead">
-		      <div class="row">
-		      	<div class="col-md-10 col-md-offset-1">
-			        <nav class="blog-nav" >
-                <a class="blog-nav-item active" href="{% url 'index'%}">首页</a>
+        <div class="blog-masthead">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <nav class="blog-nav" >
+                <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
                 <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
                 <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
-                <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
+                <a class="blog-nav-item active" href="{% url 'data' %}">数据分析</a>
                 <a class="blog-nav-item" href="#">相关资源</a>
-                <span><a class="blog-nav-item" href="/signup" style="float:right">注册</a></span>
-                <span><a class="blog-nav-item" href="/login" style="float:right">登录</span>
-             </nav>
-			    	</div>
-			    </div>
-		    </div>
-      </div>   
+                <a class="blog-nav-item" href="/signup" style="float:right">注册</a>
+                <a class="blog-nav-item" href="/login" style="float:right">登录</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     </div>
 

@@ -1,11 +1,10 @@
 /*--------------------------jumbotron STARTS--------------------------*/
 .jumbotron {
-  background-color: #ffffff;
-  padding-top: 5px;	
-  padding-bottom: 0px;  
-  margin-bottom: 20px;
+    padding: 30px 15px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
 }
-
 .chn-title {
   color: #005825;
   padding-left: 12px;

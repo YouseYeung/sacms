@@ -7,35 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>团队介绍</title>
-    <link rel='icon' href=“{% static 'sacms/logo.jpg' %} type='image/x-ico' />
-    <link rel="stylesheet" href="{% static 'sacms/style.css' %}"> 
+    <link rel='icon' href=" {% static 'sacms/logo.jpg' %}" type='image/x-ico' />
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-		<!-- 新 Bootstrap 核心 CSS 文件 -->
-		<link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">
-		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
-		<link rel="stylesheet" href="{% static 'sacms/bootstrap-theme.min.css' %}">
+    <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
 
-		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-		<script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
-		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <LINK href="{% static 'sacms/news_style.css' %}" rel="stylesheet" type="text/css">
 
-    <script src="{% static 'sacms/js/bootstrap.min.js' %}"></script>
-		<link href="{% static 'sacms/index.css' %}" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static 'sacms/data_ana_form.css' %}">
   </head>
 
   <body>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
+       <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
 
-      	
-      	<div class="col-md-2 logo">
+
+        <div class="col-md-2 logo">
           <img src="{% static 'sacms/logo.jpg' %}" height="130">
         </div>
         <div class="col-md-10">
-        	<p class="chn-title"><b>国家重点研发计划——重要热带病传播相关的入侵媒介及其病原体的生物学特性研究</b></p>
+          <p class="chn-title"><b>国家重点研发计划——重要热带病传播相关的入侵媒介及其病原体的生物学特性研究</b></p>
           <div class="row">
             <div class="col-md-9 eng-title">
               <p><b>National Research and Development Plan: Research on Biological Characteristics of the Tropical Disease Related Invasion vectors and Pathogens</b><p>
@@ -56,13 +54,13 @@
           </div>
 
         </div>
-        
 
 
 
-		      <!-- <div class="col-md-3 search-box">
-			      <div class="row">
-			       	<div class="col-md-offset-1 col-md-11">
+
+          <!-- <div class="col-md-3 search-box">
+            <div class="row">
+              <div class="col-md-offset-1 col-md-11">
 
                 <div id="custom-search-input">
                   <div class="input-group col-md-12">
@@ -75,28 +73,30 @@
                   </div>
                 </div>
 
-			      	</div>
-			      </div>
-		      </div> -->
+              </div>
+            </div>
+          </div> -->
       </div>
 
       <div class="container">
-	      <div class="blog-masthead">
-		      <div class="row">
-		      	<div class="col-md-10 col-md-offset-1">
-			        <nav class="blog-nav" >
-                <a class="blog-nav-item active" href="{% url 'index'%}">首页</a>
+        <div class="blog-masthead">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <nav class="blog-nav" >
+                <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
                 <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
-                <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
+                <a class="blog-nav-item active" href="{% url 'groups'%}">研究团队</a>
                 <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
                 <a class="blog-nav-item" href="#">相关资源</a>
-                <span><a class="blog-nav-item" href="/signup" style="float:right">注册</a></span>
-                <span><a class="blog-nav-item" href="/login" style="float:right">登录</span>
-			        </nav>
-			    	</div>
-			    </div>
-		    </div>
-      </div>   
+                <a class="blog-nav-item" href="/signup" style="float:right">注册</a>
+                <a class="blog-nav-item" href="/login" style="float:right">登录</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
     </div>
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>首页</title>
+    <title>文章</title>
     <link rel='icon' href='pics/logo.jpg' type='image/x-ico' /> 
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">  
     <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
     <script src="{% static 'sacms/js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
+
 	
   </head>
 
@@ -84,14 +86,16 @@
         </div>
         <div class="col-sm-8 project-introduction">
         {% if article %}
-          <p class="project-introduction-title">{{ article.title }}</p>
+          <p class="project-introduction-title" style="text-align:center">{{ article.title }}</p>
              <div class="row">
-               <div class="col-sm-7"></div>
-               <div class="col-sm-2"><small class="author">作者：{{ article.author }}</small></div>
-               <div class="col-sm-3"><small class="pubDate">发布日期： {{ article.published_date }}</small></div>
+               <div class="col-sm-2"></div>
+               <div class="col-sm-4"><small class="author">作者：{{ article.author }}</small></div>
+               <div class="col-sm-4"><small class="pubDate">发布日期： {{ article.published_date }}</small></div>
              </div>
+             <hr>
           <p class="project-introduction-paragraph">
           {{ article.text }}
+          <hr>
           </p>
 				</div>
 
@@ -101,7 +105,6 @@
        {% else %}
        <p>no article</p>
        {% endif %}
-      <hr>
       <footer class="footer">
         <div class="row">
           <div class="col-sm-8">
