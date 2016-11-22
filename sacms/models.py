@@ -23,3 +23,13 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class ResearchGroup(models.Model):
+    name = models.CharField(max_length=1000)
+    personnel = models.CharField(max_length=1000)
+    directions = models.CharField(max_length=1000)
+    projects = models.CharField(max_length=1000)
+    papers = models.TextField()
+
+    def __str__(self):
+        return self.name
