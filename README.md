@@ -1,54 +1,36 @@
-test accounts & passwords:
-
-admin admin741852
-
+test accounts & passwords:  
+admin admin741852  
 user1 user1qwert
 
 
 
 URL specifications:
 
-HOME PAGE
 
-URL: /sacms/
-
-view function: views.index
-
+HOME PAGE  
+URL: /sacms/  
+view function: views.index  
 function: the home page / index page
 
 
-NEWS LIST PAGE / NEWSFEED PAGE
-
-URL: /sacms/news/
-
-view function: views.newsfeed
-
+NEWS LIST PAGE / NEWSFEED PAGE  
+URL: /sacms/news/  
+view function: views.newsfeed  
 function: list of all news articles' titles
 
 
-
-NEWS ARTICLE PAGE
-
-URL: /sacms/news/(article_id)/
-
-view function: views.article
-
-function: the news article page
-
+NEWS ARTICLE PAGE  
+URL: /sacms/news/(article_id)/  
+view function: views.article  
+function: the news article page  
 example: access http://localhost:8000/sacms/news/1/
 
 
-
-ALL RESEARCH GROUPS IN JSON
-
-URL: /sacms/json/groups
-
-view function: views.groups_json
-
-example access http://localhost:8000/sacms/json/groups/
-
-result:
-
+ALL RESEARCH GROUPS IN JSON  
+URL: /sacms/json/groups  
+view function: views.groups_json  
+example access http://localhost:8000/sacms/json/groups/  
+result:  
 [{"name": "GroupA", "id": 1}, {"name": "GroupB", "id": 2}]
 
 
