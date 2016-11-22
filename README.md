@@ -52,17 +52,16 @@ result:
 [{"name": "GroupA", "id": 1}, {"name": "GroupB", "id": 2}]
 
 
-
-RESEARCH GROUP BY ID IN JSON
-URL: /sacms/json/group/(group_id)/
-view function: views.group
-example result:
-access http://localhost:8000/sacms/group/2/
-result:
+RESEARCH GROUP BY ID IN JSON  
+URL: /sacms/json/group/(group_id)/  
+view function: views.group  
+example result:  
+access http://localhost:8000/sacms/group/2/  
+result:  
 {"personnel": ["小方", "小圆"], "papers": ["论人类的智能如何拯救地球", "文章M", "文章D", "文章Z", "文章Z"], "projects": ["拯救地球", "挽救人类"], "name": "GroupB"}
 
 
-DATA ANALYSIS PAGE
-URL: /sacms/data/
-view function: views.data
-function: data analysis page
+DATA ANALYSIS PAGE  
+URL: /sacms/data/  
+view function: views.data  
+function: data analysis page  
