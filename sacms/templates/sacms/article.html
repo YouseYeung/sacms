@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>文章</title>
+    <title>{{ article.title }}</title>
     <link rel='icon' href='pics/logo.jpg' type='image/x-ico' /> 
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -66,12 +66,13 @@
 		      <div class="row">
 		      	<div class="col-md-10 col-md-offset-1">
 			        <nav class="blog-nav" >
-			          <a class="blog-nav-item" href="#">首页</a>
-			          <a class="blog-nav-item  active" href="#">新闻动态</a>
-			          <a class="blog-nav-item" href="#">研究团队</a>
-			          <a class="blog-nav-item" href="#">数据分析</a>
-			          <a class="blog-nav-item" href="#">相关资源</a>
-                 <a class="blog-nav-item" href="#" style="float:right">注册/登录</a>
+                <a class="blog-nav-item active" href="{% url 'index'%}">首页</a>
+                <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
+                <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
+                <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
+                <a class="blog-nav-item" href="#">相关资源</a>
+                <a class="blog-nav-item" href="/signup" style="float:right">注册</a>
+                <a class="blog-nav-item" href="/login" style="float:right">登录</a>
 			        </nav>
 			    	</div>
 			    </div>
