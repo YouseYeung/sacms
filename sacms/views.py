@@ -6,6 +6,7 @@ from django.http import HttpResponse, StreamingHttpResponse
 import json
 import os
 
+
 def index(request):
     """ Return the home page """
     context = {'is_logged_in': request.user.is_authenticated}
@@ -90,7 +91,7 @@ def upload_file(request):
         filePath = os.getcwd() + "\\sacms\\files\\" + myFile.name #获取当前目录并保存上传的文件至当前目录
         destination = open(filePath,'wb+')    # 打开特定的文件进行二进制的写操作  
         for chunk in myFile.chunks():      # 分块写入文件  
-            destination.write(chunk)  
+            destination.write(chunk)
         destination.close()  
         return HttpResponse("upload over!")
 
@@ -102,18 +103,16 @@ def download(request):
 @login_required
 def download_file(request, file_name):
     full_file_name = os.getcwd() + "\\sacms\\files\\" + file_name
-    #分块下载分担服务器负担
-    def file_iterator(file_name, chunk_size=512):
-        with open(file_name) as f:
-            while True:
-                c = f.read(chunk_size)
-                if c:
-                    yield c
-                else:
-                    break
+    #分行下载分担服务器负担
+    def file_iterator(file_name):
+        with open(file_name, 'r', encoding='gb2312') as f:
+            lines = f.readlines()
+            for l in lines:
+                yield l
 
     the_file_name = full_file_name
     response = StreamingHttpResponse(file_iterator(the_file_name))
     response['Content-Type'] = 'application/octet-stream'
-    response['Content-Disposition'] = 'attachment; filename=' + file_name
+    #转换中文文件名格式
+    response['Content-Disposition'] = ('attachment; filename=' + file_name).encode('gb2312')
     return response
