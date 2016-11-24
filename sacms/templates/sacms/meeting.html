@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ article.title }}</title>
+    <title>{{ meeting.title }}</title>
     <link rel='icon' href='pics/logo.jpg' type='image/x-ico' /> 
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -87,16 +87,16 @@
         <div class="col-sm-2">
         </div>
         <div class="col-sm-8 project-introduction">
-        {% if article %}
-          <p class="project-introduction-title" style="text-align:center">{{ article.title }}</p>
+        {% if meeting %}
+          <p class="project-introduction-title" style="text-align:center">{{ meeting.title }}</p>
              <div class="row">
                <div class="col-sm-2"></div>
-               <div class="col-sm-4"><small class="author">作者：{{ article.author }}</small></div>
-               <div class="col-sm-4"><small class="pubDate">发布日期： {{ article.published_date }}</small></div>
+               <div class="col-sm-4"><small class="author">主办方：{{ meeting.organization }}</small></div>
+               <div class="col-sm-4"><small class="pubDate">举办日期： {{ meeting.held_date }}</small></div>
              </div>
              <hr>
           <p class="project-introduction-paragraph">
-          {{ article.text }}
+          {{ meeting.text }}
           <hr>
           </p>
 				</div>
@@ -105,7 +105,7 @@
           
         </div>
        {% else %}
-       <p>no article</p>
+       <p>no meeting</p>
        {% endif %}
       <footer class="footer">
         <div class="row">

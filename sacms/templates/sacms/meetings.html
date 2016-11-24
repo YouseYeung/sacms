@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>新闻</title>
+    <title>会议</title>
     <link rel='icon' href=" {% static 'sacms/logo.jpg' %}" type='image/x-ico' />
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
@@ -107,14 +107,14 @@
 <div class="fl" id="art_main">
 <div class="cat_list">
 <ul>
-  {% if article_list %}
-    {% for article in article_list %}
+  {% if meeting_list %}
+    {% for meeting in meeting_list %}
     <li>
-      <h2><span class="date fr"> {{ article.published_date }}</span> <a href="{% url 'article' article.id %}" title="{{ article.title }}">{{ article.title }}</a></h2></li>
+      <h2><span class="date fr"> {{ meeting.held_date }}</span> <a href="{% url 'meeting' meeting.id %}" title="{{ meeting.title }}">{{ meeting.title }}</a></h2></li>
     </li>
     {% endfor %}
     {% else %}
-    <li> no article are available</li>
+    <li> no meeting is available</li>
   {% endif %}
 <div class="page_navi"><a class="current" href="http://sdcs.sysu.edu.cn/?cat=76">1</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=2">2</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=3">3</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=4">4</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=5">5</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=6">6</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=7">7</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=8">8</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=9">9</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=10">10</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=2"> 下一页 </a><a title="跳转到最后一页" class="extend" href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=18"> 最后一页
 </a></div></div></div><!--内容-->         </div></div>

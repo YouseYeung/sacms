@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
-from .models import Article, ResearchGroup
+from .models import Article, ResearchGroup, Meeting
 from django.http import HttpResponse
 import json
 
@@ -17,12 +17,25 @@ def newsfeed(request):
     return render(request, 'sacms/newsfeed.html', context)
 
 @login_required
+def meetings(request):
+    """ Return the page for the list of all meetings """
+    meeting_list = Meeting.objects.order_by('held_date')
+    context = {'meeting_list': meeting_list}
+    return render(request, 'sacms/meetings.html', context)
+
+@login_required
 def article(request, article_id):
     """ Return the page for a news article """
     article = get_object_or_404(Article, pk=article_id)
     context = {'article': article}
     return render(request, 'sacms/article.html', context)
 
+@login_required
+def meeting(request, meeting_id):
+    """ Return the meeting for meetings_list """
+    meeting = get_object_or_404(Meeting, pk=meeting_id)
+    context = {'meeting': meeting}
+    return render(request, 'sacms/meeting.html', context)
 
 @login_required
 def groups_json(request):

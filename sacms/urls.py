@@ -15,6 +15,14 @@ urlpatterns = [
     # ex: /sacms/news/5/
     url(r'^news/(?P<article_id>[0-9]+)/', views.article, name='article'),
 
+    # meetings page
+    # ex: /sacms/meetings
+    url(r'^meetings/$', views.meetings, name='meetings'),
+
+    # meetings meeting page
+    # ex: /sacms/meetings/5/
+    url(r'^meetings/(?P<meeting_id>[0-9]+)/', views.meeting, name='meeting'),
+
     # all research groups in JSON
     # ex: /sacms/json/groups
     url(r'^json/groups', views.groups_json, name='groups_json'),
