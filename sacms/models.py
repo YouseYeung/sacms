@@ -64,7 +64,7 @@ class ResearchGroup(models.Model):
     # Research Group personnel
     personnel = models.ManyToManyField(
         User,
-        # TODO: Only users in group LabUser can be in here
+        # Only users in group LabUser can be in here
         limit_choices_to={'groups__name': 'LabUser'},
         # validation-related, will accept empty value
         blank=True,

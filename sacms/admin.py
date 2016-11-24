@@ -17,11 +17,6 @@ class ResearchGroupAdmin(admin.ModelAdmin):
 # Register Article class in admin site
 admin.site.register(Article, ArticleAdmin)
 # Register ResearchGroup class in admin site
-<<<<<<< HEAD
-admin.site.register(ResearchGroup)
-
+admin.site.register(ResearchGroup, ResearchGroupAdmin)
 # Register Meeting class in admin site
 admin.site.register(Meeting)
-=======
-admin.site.register(ResearchGroup, ResearchGroupAdmin)
->>>>>>> c14fb47d645e8bade2df180f51efcb9d8c2f8731
