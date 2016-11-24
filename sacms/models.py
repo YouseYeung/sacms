@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # News article
 class Article(models.Model):
@@ -25,10 +26,31 @@ class Article(models.Model):
         return self.title
 
 class ResearchGroup(models.Model):
+    # Research Group name
     name = models.CharField(max_length=1000)
-    personnel = models.CharField(max_length=1000)
+    # Research Group leader, must be a staff of the site
+    leader = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        # only staff can be leader of a ResearchGroup
+        limit_choices_to={'is_staff': True},
+        related_name = '+',
+    )
+    # Research Group personnel
+    personnel = models.ManyToManyField(
+        User,
+        # TODO: Only users in group LabUser can be in here
+        limit_choices_to={'groups__name': 'LabUser'},
+        # validation-related, will accept empty value
+        blank=True,
+        related_name = '+',
+    )
+    # Research Directions
     directions = models.CharField(max_length=1000)
+    # Researching Projects
     projects = models.CharField(max_length=1000)
+    # Published Papers
     papers = models.TextField()
 
     def __str__(self):
