@@ -39,4 +39,14 @@ urlpatterns = [
     # data analysis page
     # ex: /sacms/data/
     url(r'^data/$', views.data, name='data'),
+
+    # upload file
+    # ex: /sacms/upload
+    url(r'^file', views.upload, name= 'upload'),
+    url(r'^upload_file', views.upload_file, name= 'upload_file'),
+    
+    # download file
+    # ex: /scams/download and /sacms/download/file_name
+    url(r'^download', views.download, name = 'download'),
+    url(r'^donwload/(.+)/$', views.download_file, name = 'download_file'),
 ]

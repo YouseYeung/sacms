@@ -1,0 +1,5 @@
+{% if fileDir %}
+<ul>
+	{% for file in fileDir %}
+	<li><a href = "{% url 'download_file' file %}"> file </a></li>
+</ul>

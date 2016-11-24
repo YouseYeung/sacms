@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Article, ResearchGroup, Meeting
 from django.http import HttpResponse
 import json
+import os
 
 def index(request):
     """ Return the home page """
@@ -74,3 +75,34 @@ def data(request):
     """ Return the data analysis page """
     context = {}
     return render(request, 'sacms/data.html', context)
+
+@login_required
+def upload(request):
+    return render(request, 'sacms/upload.html')
+
+@login_required
+def upload_file(request):
+    if request.method == "POST":    # 请求方法为POST时，进行处理  
+        myFile =request.FILES.get("myfile", None)    # 获取上传的文件，如果没有文件，则默认为None  
+        if not myFile:  
+            return HttpResponse("no files for upload!")
+        filePath = os.getcwd() + "\\sacms\\files\\" + myFile.name #获取当前目录并保存上传的文件至当前目录
+        destination = open(filePath,'wb+')    # 打开特定的文件进行二进制的写操作  
+        for chunk in myFile.chunks():      # 分块写入文件  
+            destination.write(chunk)  
+        destination.close()  
+        return HttpResponse("upload over!")
+
+@login_required
+def download(request):
+    fileDir = os.listdir(os.getcwd() + "\\sacms\\files\\")
+    return render(request, 'sacms/download.html', {'fileDir': fileDir})
+
+@login_required
+def download_file(request, file_name):
+    file_download = os.getcwd() + "\\sacms\\files\\" + file_name #获取当前目录并保存上传的文件至当前目录
+    with open(file_download) as f:
+        c = f.read()
+    #直接以httpresponse对象返回
+    #目前只允许英文文件名的txt文件
+    return HttpResponse(c) 
