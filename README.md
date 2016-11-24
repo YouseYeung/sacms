@@ -1,7 +1,21 @@
 test accounts & passwords:  
-admin admin741852  
-user1 user1qwert
 
+superuser:  
+admin admin741852  
+
+
+team leaders:  
+TeamALeader tm123456  
+TeamBLeader tm123456  
+
+LabUsers:  
+user1 user1qwert  
+user2 user2qwert  
+user3 user3qwert  
+user4 user4qwert  
+
+RegisterdUser:  
+user5 user5qwert
 
 
 URL specifications:

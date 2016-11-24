@@ -59,7 +59,10 @@ def group(request, group_id):
     group = get_object_or_404(ResearchGroup, pk=group_id)
     resp = {}
     resp['name'] = group.name
-    resp['personnel'] = group.personnel.split()
+    personnel = list()
+    for p in group.personnel.all():
+        personnel.append(p.username)
+    resp['personnel'] = personnel
     resp['projects'] = group.projects.split()
     resp['papers'] = group.papers.split()
     # ensure_ascii set to False will ensure that Django won't
