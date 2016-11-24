@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from .models import Article, ResearchGroup, Meeting
-from django.http import HttpResponse
+from django.http import HttpResponse, StreamingHttpResponse
+
 import json
 import os
 
@@ -100,9 +101,19 @@ def download(request):
 
 @login_required
 def download_file(request, file_name):
-    file_download = os.getcwd() + "\\sacms\\files\\" + file_name #获取当前目录并保存上传的文件至当前目录
-    with open(file_download) as f:
-        c = f.read()
-    #直接以httpresponse对象返回
-    #目前只允许英文文件名的txt文件
-    return HttpResponse(c) 
+    full_file_name = os.getcwd() + "\\sacms\\files\\" + file_name
+    #分块下载分担服务器负担
+    def file_iterator(file_name, chunk_size=512):
+        with open(file_name) as f:
+            while True:
+                c = f.read(chunk_size)
+                if c:
+                    yield c
+                else:
+                    break
+
+    the_file_name = full_file_name
+    response = StreamingHttpResponse(file_iterator(the_file_name))
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment; filename=' + file_name
+    return response
