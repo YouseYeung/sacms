@@ -1,0 +1,12 @@
+div.upload
+{
+border:1px solid #eee;
+margin:25px;
+width:730px;
+height:567px;
+}
+
+form.upload
+{
+margin:40px 30px 40px 50px;
+}
