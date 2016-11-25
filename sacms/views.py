@@ -4,8 +4,10 @@ from .models import Article, ResearchGroup, Meeting
 from django.http import HttpResponse, StreamingHttpResponse
 
 import json
+#os model用于获取文件路径
 import os
-
+#codecs model用于读取含中文字符的文件
+import codecs
 
 def index(request):
     """ Return the home page """
@@ -105,7 +107,8 @@ def download_file(request, file_name):
     full_file_name = os.getcwd() + "\\sacms\\files\\" + file_name
     #分行下载分担服务器负担
     def file_iterator(file_name):
-        with open(file_name, 'r', encoding='gb2312') as f:
+        #利用codecs model来使用Utf-8编码读取文件就不会出现中文乱码问题
+        with codecs.open(file_name, 'r', 'utf-8') as f:
             lines = f.readlines()
             for l in lines:
                 yield l
@@ -113,6 +116,6 @@ def download_file(request, file_name):
     the_file_name = full_file_name
     response = StreamingHttpResponse(file_iterator(the_file_name))
     response['Content-Type'] = 'application/octet-stream'
-    #转换中文文件名格式
+    #file_name若为utf-8的中文名，则需要转换成gb2312的编码方式才能显示出中文
     response['Content-Disposition'] = ('attachment; filename=' + file_name).encode('gb2312')
     return response
