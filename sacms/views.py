@@ -112,6 +112,7 @@ def download_file(request, file_name):
             lines = f.readlines()
             for l in lines:
                 yield l
+        f.close()
 
     the_file_name = full_file_name
     response = StreamingHttpResponse(file_iterator(the_file_name))
