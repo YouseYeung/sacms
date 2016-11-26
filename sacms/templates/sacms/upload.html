@@ -1,4 +1,43 @@
-<form enctype="multipart/form-data" action="./upload_file" method="post">  {% csrf_token %}
-<p><input type="file" name="myfile"></p>
-<p><input type="submit" value="upload"></p>  
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>数据上传</title>
+    <link rel='icon' href='pics/logo.jpg' type='image/x-ico' />
+     <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="{% static 'sacms/bootstrap-theme.min.css' %}">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sacms/upload_css/upload.css' %}">  
+    <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
+    <script src="{% static 'sacms/js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+  	<div class="container">
+  	<div class="row upload">
+      <form enctype="multipart/form-data" action="./upload_file" method="post" class="upload">  {% csrf_token %}
+        <input type="file" name="myfile" style="margin:0em 0em 0em 5em "><br>
+        <label>资源名称:</label><input type="text" name="filename" size=88><br /><br />
+        <label>资源描述:</label><textarea rows="10" cols="90" name="fileDiscription" style="vertical-align:top"></textarea>
+        <br><br>
+        <p><input type="submit" value="提交" style="margin:0em 0em 0em 5em; width:158px;height:54px"></p> 
+      </form>
+</div>
+  </body>
+</html>
+
+

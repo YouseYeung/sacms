@@ -24,6 +24,8 @@
 
   <body>
     <!-- Main jumbotron for a primary marketing message or call to action -->
+    <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
+    <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
     <div class="jumbotron">
       <div class="container">
 
@@ -85,11 +87,9 @@
                 <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
                 <a class="blog-nav-item active" href="{% url 'newsfeed' %}">新闻动态</a>
                 <a class="blog-nav-item" href="{% url 'meetings' %}">学术交流</a>
-                <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
+                <a class="blog-nav-item" href="#">通知公告</a>
                 <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
-                <a class="blog-nav-item" href="#">相关资源</a>
-                <a class="blog-nav-item" href="/signup" style="float:right">注册</a>
-                <a class="blog-nav-item" href="/login" style="float:right">登录</a>
+                <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
               </nav>
             </div>
           </div>
@@ -116,8 +116,7 @@
     {% else %}
     <li> no article are available</li>
   {% endif %}
-<div class="page_navi"><a class="current" href="http://sdcs.sysu.edu.cn/?cat=76">1</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=2">2</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=3">3</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=4">4</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=5">5</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=6">6</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=7">7</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=8">8</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=9">9</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=10">10</a><a href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=2"> 下一页 </a><a title="跳转到最后一页" class="extend" href="http://sdcs.sysu.edu.cn/?cat=76&amp;paged=18"> 最后一页
-</a></div></div></div><!--内容-->         </div></div>
+</div></div><!--内容-->         </div></div>
 
 
       <hr>

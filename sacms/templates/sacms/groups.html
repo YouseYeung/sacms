@@ -21,9 +21,17 @@
 
     <LINK href="{% static 'sacms/news_style.css' %}" rel="stylesheet" type="text/css">
 
+    
+    <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">  
+    <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
+    <script src="{% static 'sacms/js/bootstrap.min.js' %}"></script>
+    <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
+
   </head>
 
   <body>
+    <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
+    <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
        <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -86,11 +94,9 @@
                 <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
                 <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
                 <a class="blog-nav-item" href="{% url 'meetings' %}">学术交流</a>
-                <a class="blog-nav-item active" href="{% url 'groups'%}">研究团队</a>
+                <a class="blog-nav-item" href="#">通知公告</a>
                 <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
-                <a class="blog-nav-item" href="#">相关资源</a>
-                <a class="blog-nav-item" href="/signup" style="float:right">注册</a>
-                <a class="blog-nav-item" href="/login" style="float:right">登录</a>
+                <a class="blog-nav-item active" href="{% url 'groups'%}">研究团队</a>
               </nav>
             </div>
           </div>

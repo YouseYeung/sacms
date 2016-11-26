@@ -29,10 +29,10 @@
 
   <body>
     <!-- Main jumbotron for a primary marketing message or call to action -->
+    <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
+    <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
     <div class="jumbotron">
       <div class="container">
-
-      	
       	<div class="col-md-2 logo">
           <img src="{% static 'sacms/logo.jpg' %}" height="130">
         </div>
@@ -90,11 +90,9 @@
 			          <a class="blog-nav-item active" href="{% url 'index'%}">首页</a>
 			          <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
 	              <a class="blog-nav-item" href="{% url 'meetings' %}">学术交流</a>
-  		          <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
-			          <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
-			          <a class="blog-nav-item" href="#">相关资源</a>
-					      <a class="blog-nav-item" href="/signup" style="float:right">注册</a>
-					      <a class="blog-nav-item" href="/login" style="float:right">登录</a>
+                <a class="blog-nav-item" href="#">通知公告</a>
+			          <a class="blog-nav-item" href="{% url 'data' %}">数据相关</a>
+					      <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
 			        </nav>
 			    	</div>
 			    </div>
