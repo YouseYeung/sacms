@@ -6,34 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>团队介绍</title>
-    <link rel='icon' href=" {% static 'sacms/logo.jpg' %}" type='image/x-ico' />
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>data analysis</title>
+    <link rel='icon' href="{% static 'sacms/logo.jpg' %}" type='image/x-ico' />
 
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<link href="{% static 'sacms/index.css' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'sacms/data_ana_form.css' %}">
     <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
-
-    <LINK href="{% static 'sacms/news_style.css' %}" rel="stylesheet" type="text/css">
-
-    
-    <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">  
-    <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
-    <script src="{% static 'sacms/js/bootstrap.min.js' %}"></script>
-    <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
-
   </head>
 
   <body>
-    <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
-    <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
-    <a  href="{% url 'groups_en' %}" style="float:right;padding:10px;font-size:20px">English</a>
-       <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+           <!-- Main jumbotron for a primary marketing message or call to action -->
+    <a  href="/signup" style="float:right;padding:10px;font-size:20px">registe</a>
+    <a  href="/login" style="float:right;padding:10px;font-size:20px">login</a>
+    <a  href="{% url 'data' %}" style="float:right;padding:10px;font-size:20px">中文</a>
     <div class="jumbotron">
       <div class="container">
 
@@ -50,7 +46,7 @@
             <div class="col-md-3 search-box">
               <div id="custom-search-input">
                 <div class="input-group col-md-12">
-                  <input type="text" class="  search-query form-control" placeholder="搜索" />
+                  <input type="text" class="  search-query form-control" placeholder="search" />
                   <span class="input-group-btn">
                     <button class="btn btn-danger" type="button">
                       <span class=" glyphicon glyphicon-search"></span>
@@ -92,12 +88,12 @@
           <div class="row">
             <div class="col-md-10 col-md-offset-1">
               <nav class="blog-nav" >
-                <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
-                <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
-                <a class="blog-nav-item" href="{% url 'meetings' %}">学术交流</a>
-                <a class="blog-nav-item" href="#">通知公告</a>
-                <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
-                <a class="blog-nav-item active" href="{% url 'groups' %}">研究团队</a>
+                <a class="blog-nav-item" href="{% url 'index_en'%}">homepage</a>
+                <a class="blog-nav-item" href="{% url 'newsfeed_en' %}">news</a>
+                <a class="blog-nav-item" href="{% url 'meetings_en' %}">academic</a>
+                <a class="blog-nav-item" href="#">notices</a>
+                <a class="blog-nav-item active" href="{% url 'data_en' %}">data analysis</a>
+                <a class="blog-nav-item" href="{% url 'groups_en'%}">teams</a>
               </nav>
             </div>
           </div>
@@ -111,51 +107,44 @@
     <div class="container">
       <div class="row">
          <div class="sidebar col-sm-2 ">
-            <div class="dropdown">
-              <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" 
-                data-toggle="dropdown">
-              团队A
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">团队B</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">团队C</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">团队D</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">团队F</a>
-              </li>
-          </ul>
-        </div>
+            <div class="span3">
+              <div class="well" style="padding:10px 0;margin-top:20px;">
+               <ul class="nav nav-list">
+                  <li class="divider"></li>
+                  <li ><a href="{% url 'upload_en' %}"><i class="icon-white icon-home"></i>upload</a></li>
+                  <li class="active"><a href="http://www.drugfuture.com/cndrug/"><i class="icon-flag"></i>database</a></li>
+                  <li><a href="http://bbs.pinggu.org/thread-2172224-1-1.html"><i class="icon-folder-open"></i>data analysis tools</a></li>
+               </ul>
+              </div>
+           </div>
          </div>
-          <div class="col-sm-7 w3ls-agile-left">
-          <div class="w3ls-agile-left-info">
-            <h4>人员介绍</h4>
-            <p>小明、小刚</p>
-          </div>
-          <div class="w3ls-agile-left-info">
-            <h4>研究方向</h4>
-            <p>生物制药</p>
-          </div>
-          <div class="w3ls-agile-left-info">
-            <h4>课题任务</h4>
-            <p>毁灭地球</p>
-          </div>
-          <div>
-            <h4>受项目支持发表文章</h4>
-            <ul>
-              <li>文章A <span class="date fr">2016-10-10</span></li>
-              <li>文章B</li>
-              <li>文章C</li>
-              <li>文章D</li>
-            </ul>
-          </div>
-        </div>
+        <div class="col-sm-7 project-introduction">
+<table id="customers">
+<tr>
+  <th>dataset</th>
+  <th>team</th>
+  <th>country</th>
+  <th>operation</th>
+  <th>details</th>
+</tr>
+</tr>
+{% if files %}:
+  {% for f in files %}:
+  <tr class="alt">
+    <td>{{ f.name }}</td>
+    <td>{{ f.team }}</td>
+    <td>{{ f.country }}</td>
+    <td><a href="{% url 'download_file' f.name %}">download</a></td>
+    <td><a href="{% url 'description' f.id %}">view</a></td>
+  {% endfor %}
+  {% else %}
+    <p> no files </p>
+{% endif %}
+  </tr>
+</table>
+
+
+				</div>
       </div> <!-- /row -->
 
       <hr>
@@ -167,13 +156,13 @@
               <p><a href="http://zssom.sysu.edu.cn/">中山大学中山医学院</a></p>
               <p><a href="http://www.ipd.org.cn/">中国疾病预防控制中心寄生虫病预防控制所</a></p>
               <p><a href="http://life.fudan.edu.cn/ ">复旦大学生命科学学院</a></p>
-              <p><a href="http://www.ipd.org.cn/">南方医科大学公共卫生与热带医学学院</a></p>      
+              <p><a href="http://www.ipd.org.cn/">南方医科大学公共卫生与热带医学学院</a></p>
             </div>
             <div class="col-sm-5">
               <p><b>资源共享</b></p>
               <p><a href="http://www.chinaias.cn/wjPart/index.aspx ">中国外来入侵物种数据库</a></p>
               <p><a href="http://www.iucngisd.org/gisd/">全球入侵物种数据库GISD</a></p>
-              <p><a href="https://www.vectorbase.org/">人类病原体无脊椎动物媒介生物信息资源数据库（VectorBase）</a></p> 
+              <p><a href="https://www.vectorbase.org/">人类病原体无脊椎动物媒介生物信息资源数据库（VectorBase）</a></p>
             </div>
           </div>
           <div class="col-sm-3 col-sm-offset-1">
@@ -183,12 +172,12 @@
             <!-- <div class="col-sm-4"> -->
               <img src="{% static 'sacms/QRcode.png' %}" height="105">
             <!-- </div> -->
-          </div>          
+          </div>
         </div>
         <div class="col-sm-6 col-sm-offset-3">
           <p>Copyright &copy; 2016 <a href="http://www.sysu.edu.cn/2012/cn/index.htm">中山大学</a> &nbsp&nbsp&nbsp
-          联系我们：<a href="mailto:wuzhd@mail2.sysu.edu.cn">wuzhd@mail2.sysu.edu.cn</a></p> 
-          <p>地址：中国广州市中山二路74号中山大学北校区（邮政编码：510080）</p>         
+          联系我们：<a href="mailto:wuzhd@mail2.sysu.edu.cn">wuzhd@mail2.sysu.edu.cn</a></p>
+          <p>地址：中国广州市中山二路74号中山大学北校区（邮政编码：510080）</p>
         </div>
       </footer>
 

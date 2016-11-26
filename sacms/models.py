@@ -79,3 +79,21 @@ class ResearchGroup(models.Model):
 
     def __str__(self):
         return self.name
+
+#file
+class myFile(models.Model):
+    name = models.CharField(max_length = 1000)
+    team = models.CharField(max_length = 1000)
+    country = models.CharField(max_length = 1000)
+    description = models.CharField(max_length = 1000)
+    def edit(self, name=None, team=None, country=None, description=None):
+        if name is not None:
+            self.name = name
+        if team is not None:
+            self.team = team
+        if description is not None:
+            self.description = description
+        self.save()
+
+    def __str__(self):
+        return self.name

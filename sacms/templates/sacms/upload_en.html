@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>数据上传</title>
+    <title>upload</title>
     <link rel='icon' href='pics/logo.jpg' type='image/x-ico' />
      <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">
@@ -20,26 +20,26 @@
 
 
     <link rel="stylesheet" href="{% static 'sacms/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'sacms/upload_css/upload.css' %}">  
+    <link rel="stylesheet" href="{% static 'sacms/upload_css/upload.css' %}">
     <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
     <script src="{% static 'sacms/js/bootstrap.min.js' %}"></script>
     <link href="{% static 'sacms/index.css' %}" rel="stylesheet">
 
   </head>
   <body>
-    <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
-    <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
-    <a  href="{% url 'upload_en' %}" style="float:right;padding:10px;font-size:20px">English</a>
-    <div class="container">
+    <a  href="/signup" style="float:right;padding:10px;font-size:20px">registe</a>
+    <a  href="/login" style="float:right;padding:10px;font-size:20px">login</a>
+    <a  href="{% url 'upload' %}" style="float:right;padding:10px;font-size:20px">中文</a>
+  	<div class="container">
   	<div class="row upload">
       <form enctype="multipart/form-data" action="./upload_file" method="post" class="upload">  {% csrf_token %}
         <input type="file" name="myfile" style="margin:0em 0em 0em 5em "><br>
-        <label>资源名称:</label><input type="text" name="file_name" size=88><br /><br />
-        <label>所属团队:</label><input type="text" name="file_team" size=88><br /><br />
-        <label>所属国家:</label><input type="text" name="file_country" size=88><br /><br />
-        <label>资源描述:</label><textarea rows="10" cols="90" name="file_description" style="vertical-align:top"></textarea>
+        <label>file name:</label><input type="text" name="file_name" size=88><br /><br />
+        <label>team:</label><input type="text" name="file_team" size=88><br /><br />
+        <label>country:</label><input type="text" name="file_country" size=88><br /><br />
+        <label>description:</label><textarea rows="10" cols="90" name="file_description" style="vertical-align:top"></textarea>
         <br><br>
-        <p><input type="submit" value="提交" style="margin:0em 0em 0em 5em; width:158px;height:54px"></p> 
+        <p><input type="submit" value="submit" style="margin:0em 0em 0em 5em; width:158px;height:54px"></p>
       </form>
 </div>
   </body>
