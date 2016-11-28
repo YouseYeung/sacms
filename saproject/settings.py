@@ -126,3 +126,6 @@ LOGIN_URL = '/login/'
 
 # Login redirect url
 LOGIN_REDIRECT_URL = '/sacms/'
+
+# Logout redirect url
+LOGOUT_REDIRECT_URL = '/sacms/'
