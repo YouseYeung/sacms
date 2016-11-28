@@ -29,8 +29,9 @@
 
   <body>
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
-    <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
+    <a  href="/logout" style="float:right;padding:10px;font-size:20px;" id="logout">切换账户</a>
+    <a  href="/signup" style="float:right;padding:10px;font-size:20px" id="register">注册</a>
+    <a  href="/login" style="float:right;padding:10px;font-size:20px" id="login">登录</a>
     <a  href="{% url 'index_en' %}" style="float:right;padding:10px;font-size:20px">English</a>
     <div class="jumbotron">
       <div class="container">
@@ -88,12 +89,12 @@
 		      <div class="row">
 		      	<div class="col-md-10 col-md-offset-1">
 			        <nav class="blog-nav" >
-			          <a class="blog-nav-item active" href="{% url 'index_en'%}">首页</a>
-			          <a class="blog-nav-item" href="{% url 'newsfeed_en' %}">新闻动态</a>
-	              <a class="blog-nav-item" href="{% url 'meetings_en' %}">学术交流</a>
+			          <a class="blog-nav-item active" href="{% url 'index'%}">首页</a>
+			          <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
+	              <a class="blog-nav-item" href="{% url 'meetings' %}">学术交流</a>
                 <a class="blog-nav-item" href="#">通知公告</a>
-			          <a class="blog-nav-item" href="{% url 'data_en' %}">数据相关</a>
-					      <a class="blog-nav-item" href="{% url 'groups_en' %}">研究团队</a>
+			          <a class="blog-nav-item" href="{% url 'data' %}">数据相关</a>
+					      <a class="blog-nav-item" href="{% url 'groups' %}">研究团队</a>
 			        </nav>
 			    	</div>
 			    </div>
