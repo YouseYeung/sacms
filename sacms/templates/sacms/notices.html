@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>学术交流</title>
+    <title>通知公告</title>
     <link rel='icon' href=" {% static 'sacms/logo.jpg' %}" type='image/x-ico' />
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="{% static 'sacms/js/jquery-2.2.3.min.js' %}"></script>
@@ -26,7 +26,7 @@
     <a  href="/logout" style="float:right;padding:10px;font-size:20px;" id="logout">切换账户</a>
     <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
     <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
-    <a  href="{% url 'meetings_en' %}" style="float:right;padding:10px;font-size:20px">English</a>
+    <a  href="{% url 'notices_en' %}" style="float:right;padding:10px;font-size:20px">English</a>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -88,8 +88,8 @@
               <nav class="blog-nav" >
                 <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
                 <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
-                <a class="blog-nav-item active" href="{% url 'meetings' %}">学术交流</a>
-                <a class="blog-nav-item" href="{% url 'notices' %}">通知公告</a>
+                <a class="blog-nav-item" href="{% url 'meetings' %}">学术交流</a>
+                <a class="blog-nav-item active" href="url 'notices' ">通知公告</a>
                 <a class="blog-nav-item" href="{% url 'data' %}">数据分析</a>
                 <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
               </nav>
@@ -109,14 +109,14 @@
 <div class="fl" id="art_main">
 <div class="cat_list">
 <ul>
-  {% if meeting_list %}
-    {% for meeting in meeting_list %}
+  {% if notice_list %}
+    {% for notice in notice_list %}
     <li>
-      <h2><span class="date fr"> {{ meeting.held_date }}</span> <a href="{% url 'meeting' meeting.id %}" title="{{ meeting.title }}">{{ meeting.title }}</a></h2></li>
+      <h2><span class="date fr"> {{ notice.published_date }}</span> <a href="{% url 'notice' notice.id %}" title="{{ notice.title }}">{{ notice.title }}</a></h2></li>
     </li>
     {% endfor %}
     {% else %}
-    <li> no meeting is available</li>
+    <li> no notice is available</li>
   {% endif %}
 </div></div><!--内容-->         </div></div>
 

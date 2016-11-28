@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
-from .models import Article, ResearchGroup, Meeting, myFile
+from .models import Article, ResearchGroup, Meeting, myFile, Notice
 from django.http import HttpResponse, StreamingHttpResponse
 
 import json
@@ -46,6 +46,34 @@ def meetings_en(request):
     meeting_list = Meeting.objects.order_by('held_date')
     context = {'meeting_list': meeting_list}
     return render(request, 'sacms/meetings_en.html', context)
+
+@login_required
+def notices(request):
+    """ Return the page for the list of all notices """
+    notice_list = Notice.objects.order_by('published_date')
+    context = {'notice_list': notice_list}
+    return render(request, 'sacms/notices.html', context)
+
+@login_required
+def notice(request, notice_id):
+    """ Return the page for a notice """
+    notice = get_object_or_404(Notice, pk=notice_id)
+    context = {'notice': notice}
+    return render(request, 'sacms/notice.html', context)
+
+@login_required
+def notices_en(request):
+    """ Return the page for the list of all notices """
+    notice_list = Notice.objects.order_by('published_date')
+    context = {'notice_list': notice_list}
+    return render(request, 'sacms/notices_en.html', context)
+
+@login_required
+def notice_en(request, notice_id):
+    """ Return the page for a notice """
+    notice = get_object_or_404(Notice, pk=notice_id)
+    context = {'notice': notice}
+    return render(request, 'sacms/notice_en.html', context)
 
 @login_required
 def article(request, article_id):

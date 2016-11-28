@@ -32,7 +32,7 @@
     <a  href="/logout" style="float:right;padding:10px;font-size:20px;" id="logout">change Account</a>
     <a  href="/signup" style="float:right;padding:10px;font-size:20px">registe</a>
     <a  href="/login" style="float:right;padding:10px;font-size:20px">login</a>
-    <a  href="{% url 'article' %}" style="float:right;padding:10px;font-size:20px">中文</a>
+    <a  href="{% url 'article' article.id %}" style="float:right;padding:10px;font-size:20px">中文</a>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -73,7 +73,7 @@
                 <a class="blog-nav-item" href="{% url 'index_en'%}">homepage</a>
                 <a class="blog-nav-item active" href="{% url 'newsfeed_en' %}">news</a>
                 <a class="blog-nav-item" href="{% url 'meetings_en' %}">academic</a>
-                <a class="blog-nav-item" href="#">notices</a>
+                <a class="blog-nav-item" href="{% url 'notices_en' %}">notices</a>
                 <a class="blog-nav-item" href="{% url 'data_en' %}">data analysis</a>
                 <a class="blog-nav-item" href="{% url 'groups_en'%}">teams</a>
 			        </nav>

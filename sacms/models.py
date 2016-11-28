@@ -25,6 +25,30 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+# Notice
+class Notice(models.Model):
+    title = models.CharField(max_length=500)
+    organization = models.CharField(max_length=100)
+    content = models.TextField()
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def edit(self, title=None, organization=None, text=None, published_date=None):
+        if title is not None:
+            self.title = title
+        if author is not None:
+            self.organization = organization
+        if published_date is not None:
+            self.published_date = published_date
+        self.save()
+
+    def __str__(self):
+        return self.title
+
+
 #Meeting
 class Meeting(models.Model):
     title = models.CharField(max_length=500)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, ResearchGroup, Meeting, myFile
+from .models import Article, ResearchGroup, Meeting, myFile, Notice
 
 # Admin class for Article
 class ArticleAdmin(admin.ModelAdmin):
@@ -20,5 +20,7 @@ admin.site.register(Article, ArticleAdmin)
 admin.site.register(ResearchGroup, ResearchGroupAdmin)
 # Register Meeting class in admin site
 admin.site.register(Meeting)
+# Register Notice class in admin site
+admin.site.register(Notice)
 # Register myFile class in admin site
 admin.site.register(myFile)

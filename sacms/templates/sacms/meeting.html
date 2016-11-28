@@ -32,7 +32,7 @@
     <a  href="/logout" style="float:right;padding:10px;font-size:20px;" id="logout">切换账户</a>
     <a  href="/signup" style="float:right;padding:10px;font-size:20px">注册</a>
     <a  href="/login" style="float:right;padding:10px;font-size:20px">登录</a>
-    <a  href="{% url 'meeting_en' %}" style="float:right;padding:10px;font-size:20px">English</a>
+    <a  href="{% url 'meeting_en' meeting.id %}" style="float:right;padding:10px;font-size:20px">English</a>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -73,7 +73,7 @@
                 <a class="blog-nav-item" href="{% url 'index'%}">首页</a>
                 <a class="blog-nav-item" href="{% url 'newsfeed' %}">新闻动态</a>
                 <a class="blog-nav-item active" href="{% url 'meetings' %}">学术交流</a>
-                <a class="blog-nav-item" href="#">通知公告</a>
+                <a class="blog-nav-item" href="{% url 'notices' %}">通知公告</a>
                 <a class="blog-nav-item" href="{% url 'data' %}">数据相关</a>
                 <a class="blog-nav-item" href="{% url 'groups'%}">研究团队</a>
 			        </nav>

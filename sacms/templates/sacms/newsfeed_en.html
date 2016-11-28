@@ -89,7 +89,7 @@
                 <a class="blog-nav-item" href="{% url 'index_en' %}">homepage</a>
                 <a class="blog-nav-item active" href="{% url 'newsfeed_en' %}">news</a>
                 <a class="blog-nav-item" href="{% url 'meetings_en' %}">academic</a>
-                <a class="blog-nav-item" href="#">notices</a>
+                <a class="blog-nav-item" href="{% url 'notices_en' %}">notices</a>
                 <a class="blog-nav-item" href="{% url 'data_en' %}">data analysis</a>
                 <a class="blog-nav-item" href="{% url 'groups_en' %}">teams</a>
               </nav>
@@ -112,7 +112,7 @@
   {% if article_list %}
     {% for article in article_list %}
     <li>
-      <h2><span class="date fr"> {{ article.published_date }}</span> <a href="{% url 'article' article.id %}" title="{{ article.title }}">{{ article.title }}</a></h2></li>
+      <h2><span class="date fr"> {{ article.published_date }}</span> <a href="{% url 'article_en' article.id %}" title="{{ article.title }}">{{ article.title }}</a></h2></li>
     </li>
     {% endfor %}
     {% else %}
