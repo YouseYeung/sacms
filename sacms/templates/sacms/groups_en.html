@@ -110,54 +110,69 @@
     </div>
 
     <div class="container">
-      <div class="row">
+
+
+    {% if group_info %}
+
+    <!-- Group info container start -->
+    <div class="row">
+
+        <!-- Sidebar start -->
          <div class="sidebar col-sm-2 ">
             <div class="dropdown">
-              <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+
+                <!-- Selected group name -->
+                <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" 
                 data-toggle="dropdown">
-              team A
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">team B</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">team C</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">team D</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">team F</a>
-              </li>
-          </ul>
+                    {{ group_info.name }}
+                    <span class="caret"></span>
+                </button>
+
+                <!-- Other groups -->
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+                    {% for g in group_list %}
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1" href="{% url 'selected_group_en' g.id %}">{{ g.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-         </div>
-          <div class="col-sm-7 w3ls-agile-left">
-          <div class="w3ls-agile-left-info">
-            <h4>members</h4>
-            <p>小明、小刚</p>
-          </div>
-          <div class="w3ls-agile-left-info">
-            <h4>research area</h4>
-            <p>生物制药</p>
-          </div>
-          <div class="w3ls-agile-left-info">
-            <h4>subject</h4>
-            <p>毁灭地球</p>
-          </div>
-          <div>
-            <h4>articles</h4>
-            <ul>
-              <li>文章A <span class="date fr">2016-10-10</span></li>
-              <li>文章B</li>
-              <li>文章C</li>
-              <li>文章D</li>
-            </ul>
-          </div>
+        <!-- Sidebar end -->
+
+        <!-- Specific Group info start-->
+        <div class="col-sm-7 w3ls-agile-left">
+            <div class="w3ls-agile-left-info">
+                <h4>Personnel</h4>
+                <p>{{ group_info.personnel }}</p>
+            </div>
+            <div class="w3ls-agile-left-info">
+                <h4>Research Directions</h4>
+                <p>{{ group_info.directions }}</p>
+            </div>
+            <div class="w3ls-agile-left-info">
+                <h4>Research Projects</h4>
+                <p>{{ group_info.projects }}</p>
+            </div>
+            <div>
+                <h4>Published Papers</h4>
+                <ul>
+                    {% for p in group_info.papers %}
+                    <li>{{ p }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-      </div> <!-- /row -->
+        <!-- Specific Group info end -->
+
+    </div> <!-- /row -->
+    <!-- Group info container end -->
+
+    {% else %}
+    <div> No Groups yet. </div>
+
+    {% endif %}
 
       <hr>
       <footer class="footer">

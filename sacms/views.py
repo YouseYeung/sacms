@@ -113,17 +113,54 @@ def groups_json(request):
     return HttpResponse(json.dumps(resp, ensure_ascii=False), content_type="application/json; charset=utf-8")
 
 @login_required
-def groups(request):
-    """ Deprecated: return the page of list of all research groups """
-    group_list = ResearchGroup.objects.order_by('name')
-    context = {'group_list': group_list}
+
+def groups(request, group_id = 1):
+    """ return the page of list of all research groups
+        and the info for the chosen group
+    """
+    group = get_object_or_404(ResearchGroup, pk=group_id)
+    groups = ResearchGroup.objects.order_by('name')
+    group_list = []
+    for g in groups:
+        if g.id is not group.id:
+            group_list.append({'name': g.name, 'id': g.id})
+    # default showing group
+    # chosen group info
+    group_info = {}
+    group_info['name'] = group.name
+    personnel = list()
+    for p in group.personnel.all():
+        personnel.append(p.username)
+    group_info['personnel'] = " ".join(str(x) for x in personnel)
+    group_info['projects'] = group.projects
+    group_info['directions'] = group.directions
+    group_info['papers'] = group.papers.split()
+    context = {'group_list': group_list, 'group_info': group_info}
     return render(request, 'sacms/groups.html', context)
 
 @login_required
-def groups_en(request):
-    """ Deprecated: return the page of list of all research groups """
-    group_list = ResearchGroup.objects.order_by('name')
-    context = {'group_list': group_list}
+def groups_en(request, group_id = 1):
+    """ return the page of list of all research groups
+        and the info for the chosen group
+    """
+    group = get_object_or_404(ResearchGroup, pk=group_id)
+    groups = ResearchGroup.objects.order_by('name')
+    group_list = []
+    for g in groups:
+        if g.id is not group.id:
+            group_list.append({'name': g.name, 'id': g.id})
+    # default showing group
+    # chosen group info
+    group_info = {}
+    group_info['name'] = group.name
+    personnel = list()
+    for p in group.personnel.all():
+        personnel.append(p.username)
+    group_info['personnel'] = " ".join(str(x) for x in personnel)
+    group_info['projects'] = group.projects
+    group_info['directions'] = group.directions
+    group_info['papers'] = group.papers.split()
+    context = {'group_list': group_list, 'group_info': group_info}
     return render(request, 'sacms/groups_en.html', context)
 
 @login_required
@@ -166,7 +203,7 @@ def upload_en(request):
 
 @login_required
 def upload_file(request):
-    if request.method == "POST":    # 请求方法为POST时，进行处理  
+    if request.method == "POST":    # 请求方法为POST时，进行处理
         #request.POST是一个字典对象，可以用['attributename']来获取相应的属性值
         file_name = request.POST['file_name']
         file_team = request.POST['file_team']
@@ -179,10 +216,10 @@ def upload_file(request):
         if not myfile:
             return HttpResponse("no files for upload!")
         filePath = os.getcwd() + "\\sacms\\files\\" + myfile.name #获取当前目录并保存上传的文件至当前目录
-        destination = open(filePath,'wb+')    # 打开特定的文件进行二进制的写操作  
-        for chunk in myfile.chunks():      # 分块写入文件  
+        destination = open(filePath,'wb+')    # 打开特定的文件进行二进制的写操作
+        for chunk in myfile.chunks():      # 分块写入文件
             destination.write(chunk)
-        destination.close()  
+        destination.close()
         return HttpResponse("upload over!")
 
 @login_required
@@ -210,7 +247,7 @@ def download_file(request, file_name):
             with codecs.open(file_name, 'r', 'utf-8') as f:
                 lines = f.readlines()
                 for l in lines:
-                    yield l    
+                    yield l
         f.close()
 
     the_file_name = full_file_name

@@ -11,7 +11,7 @@ urlpatterns = [
     # news feed page (list of all news article titles)
     # ex: /sacms/news/
     url(r'^news/$', views.newsfeed, name='newsfeed'),
-    url(r'^news_en/$', views.newsfeed_en, name='newsfeed_en'),    
+    url(r'^news_en/$', views.newsfeed_en, name='newsfeed_en'),
 
     # news article page
     # ex: /sacms/news/5/
@@ -36,7 +36,9 @@ urlpatterns = [
     # research group info page
     # ex: /sacms/groups/
     url(r'^groups/$', views.groups, name='groups'),
-    url(r'^teams/$', views.groups_en, name='groups_en'),
+    url(r'^groups/(?P<group_id>[0-9]+)/', views.groups, name='selected_group'),
+    url(r'^groups_en/$', views.groups_en, name='groups_en'),
+    url(r'^groups_en/(?P<group_id>[0-9]+)/', views.groups_en, name='selected_group_en'),
 
     # research group in JSON
     # ex: /sacms/group/1/
