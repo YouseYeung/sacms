@@ -63,7 +63,8 @@ urlpatterns = [
     # ex: /sacms/upload
     url(r'^upload/$', views.upload, name= 'upload'),
     url(r'^upload_en/$', views.upload_en, name= 'upload_en'),
-    url(r'^upload_file', views.upload_file, name= 'upload_file'),
+    #url(r'^upload_file', views.upload_file, name= 'upload_file'),
+    url(r'^upload/upload_file', views.upload_file, name= 'upload_file'),
 
     # download file
     # ex: /scams/download and /sacms/download/file_name
